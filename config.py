@@ -4,7 +4,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from db import Database
 
 
-BOT_TOKEN = "5971566944:AAEDyMrxplUhQkbl_-BG5Q5AW-i_l1uWkM0"
+BOT_TOKEN = os.environment.get("BOT_TOKEN")
 DB_FILE = 'db.sqlite3'
 
 bot = Bot(BOT_TOKEN)
