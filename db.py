@@ -1,7 +1,4 @@
-import random
 import sqlite3
-import string
-
 
 class Database:
     def __init__(self, db_file):
@@ -26,7 +23,9 @@ class Database:
         uid = self.get_last_id()
         self.request_to_database(f'UPDATE bot_product SET {param_to_set}=? WHERE id=?',
                                  (value_to_set, uid,))
-
+        
+    
+    # get newest product id if his creation wasn`t successfully
     def get_last_id(self):
         return self.request_to_database("SELECT id FROM bot_product").fetchall()[-1][
             0]
@@ -73,5 +72,6 @@ class Database:
     def get_ref_percent(self):
         return self.request_to_database("SELECT percent FROM bot_refpercent").fetchone()[0]
 
+"""Testing new functions"""
 # db = Database('db.sqlite3')
 # db.set_inviter_id(5132067462, 818525681)
